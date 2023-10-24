@@ -5,6 +5,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/mdx-components.tsx',
   ],
   theme: {
     extend: {
@@ -14,7 +15,15 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    hljs: {
+      theme: 'atom-one-dark',
+    },
   },
-  plugins: [],
+  plugins: [require('tailwind-highlightjs')],
+  safelist: [
+    {
+      pattern: /hljs+/,
+    },
+  ],
 }
 export default config
