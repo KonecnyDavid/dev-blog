@@ -1,5 +1,6 @@
 import nextMDX from '@next/mdx';
 import rehypeHighlight from 'rehype-highlight';
+import remarkFrontmatter from "remark-frontmatter";
 
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
@@ -7,7 +8,7 @@ const nextConfig = {
 
 const withMDX = nextMDX({
     options: {
-        remarkPlugins: [],
+        remarkPlugins: [remarkFrontmatter],
         rehypePlugins: [rehypeHighlight],
     },
 });
